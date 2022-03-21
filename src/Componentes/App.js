@@ -1,7 +1,7 @@
-import Tela from "./Tela"
+import Telas from "./Telas.js"
 
 export default function App(){
     return(
-        <Tela/>
+        <Telas/>
     )
 }

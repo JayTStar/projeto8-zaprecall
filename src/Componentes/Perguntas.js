@@ -1,19 +1,19 @@
-import Recalls from "./Recalls"
-export default function Perguntas (){
-    function abrePergunta(selecionada){
-        const resultado = Recalls.filter(pergunta => {return pergunta.titulo === selecionada})
+import React from "react"
+import Cards from "./Cards"
+import Pergunta from "./Pergunta"
+import logoPequeno from "../mididas/logoPequeno.png"
 
-        console.log (resultado)
-    }
+export default function Perguntas(props){
+    
     return(
-        <>
-            <img />
-            <h2>ZapRecall</h2>
-
+        <main className="conteudo">
+            <div className="topo">
+                <img src={logoPequeno} alt="logo"/>
+                <h2>ZapRecall</h2>
+            </div>
             <ul className="perguntas">
-                {Recalls.map(questionarios => <section className="pergunta" onClick={() => abrePergunta()}><p>{questionarios.titulo}</p> <ion-icon name="play-outline"></ion-icon></section>)}
+                {Cards.map(card => {return <Pergunta setConcluidos = {props.setConcluidos} concluidos ={props.concluidos} pergunta = {card[0]} indice = {card[1]} setResultado={props.setResultado} resultado ={props.resultado}/>})}
             </ul>
-
-        </>
-    );
+        </main>
+    )
 }
